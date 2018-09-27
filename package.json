@@ -1,0 +1,22 @@
+{
+  "name": "haxe-error-parser",
+  "description": "Haxe error matching, parsing and formatting",
+  "version": "0.1.0",
+  "author": "Rudy G <k@klabz.org>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kLabz/haxe-error-parser.git"
+  },
+  "files": [
+    "index.js",
+    "errorFormatter.js",
+    "errorParser.js",
+    "errorTransformer.js",
+    "utils",
+    "README.md"
+  ],
+  "dependencies": {
+    "chalk": "^1.1.3"
+  }
+}

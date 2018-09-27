@@ -6,8 +6,13 @@ const problemMatcher = new RegExp(
 );
 
 const fatalErrorMatcher = new RegExp("^Fatal error: (.*)$");
+
 const missingLibErrorMatcher = new RegExp(
     "^Error: Error: Library ([^\s]+) is not installed : run 'haxelib install (?:[^']+)'$"
+);
+
+const unknownHaxeOption = new RegExp(
+    "^Error: : unknown option '.*'.$"
 );
 
 function identifyError(error) {
@@ -15,6 +20,7 @@ function identifyError(error) {
     if (problemMatcher.test(error)) return true;
     if (fatalErrorMatcher.test(error)) return true;
     if (missingLibErrorMatcher.test(error)) return true;
+    if (unknownHaxeOption.test(error)) return true;
     return false;
 }
 

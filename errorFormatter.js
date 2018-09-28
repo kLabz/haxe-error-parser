@@ -269,8 +269,14 @@ function groupErrors(errors) {
                 else previous.contextErrors.push(error);
             }
         } else if (!ignoreError(error)) {
-            if (map[key]) map[key].message += '\n' + error.message;
-            else map[key] = error;
+            if (map[key]) {
+                map[key].message += '\n' + error.message;
+
+                // Fix reference for sub errors
+                error = map[key];
+            } else {
+                map[key] = error;
+            }
         }
 
         if (!isSub) previous = error;

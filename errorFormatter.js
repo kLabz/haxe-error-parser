@@ -300,6 +300,7 @@ function ignoreError(error) {
 function isSubError(error, previous) {
     if (!previous || !previous.message) return false;
     if (error.message === 'Defined in this class') return true;
+    if (error.message === 'Called from here') return true;
 
     if (previous.message === 'Could not find a suitable overload, reasons follow') {
         return (error.message !== 'End of overload failure reasons');
